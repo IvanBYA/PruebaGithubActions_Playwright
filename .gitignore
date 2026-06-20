@@ -6,3 +6,31 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Allure Reports
+/allure-results/
+/allure-report/
+
+# Screenshots (artefactos generados)
+/screenshots/
+
+# Variables de entorno (credenciales sensibles)
+.env
+.env.local
+.env.*.local
+
+# Archivos de log
+*.log
+logs/
+
+# IDE y editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+.DS_Store?
