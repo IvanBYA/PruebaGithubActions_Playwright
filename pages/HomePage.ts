@@ -3,17 +3,27 @@ import { ScreenshotUtils } from '../utils/screenshotUtils';
 
 export class HomePage {
 
+    /**
+     * Propiedades de la clase HomePage
+     */
     private readonly page: Page;
     private readonly screenshotUtils: ScreenshotUtils;
 
-    public readonly urlHomePage = "https://automationexercise.com/";
+    /**
+     * Selectores
+     */
+    public  readonly urlHomePage = "https://automationexercise.com/";
     private readonly titleHomePage = "Automation Exercise";
     private readonly activeLink = "//a[contains(@style,'orange')]";
     private readonly copyrightText = "p[class=pull-left]";
 
-    // Constructor de la clase HomePage
-    // Explicacion: El constructor de la clase HomePage recibe dos parámetros, page y testInfo, que son asignados a las propiedades correspondientes de la clase.
-    // Además, se crea una instancia de ScreenshotUtils utilizando estos parámetros, lo que permite que los métodos de la clase HomePage puedan utilizar esta utilidad para capturar pantallas durante las pruebas. Esto facilita la organización y reutilización del código relacionado con la captura de pantallas en diferentes partes de las pruebas.
+    /**
+     * Constructor de la clase HomePage
+     * @param page Instancia de Page para interactuar con el navegador
+     * @param testInfo Información de la prueba para capturar y adjuntar screenshots
+     * @date 23/06/2026
+     * @author Ivan
+     */
     public constructor(page: Page, testInfo: TestInfo) {
         this.page = page;
         this.screenshotUtils = new ScreenshotUtils(testInfo, page);
@@ -29,6 +39,11 @@ export class HomePage {
         await expect(this.page).toHaveTitle(this.titleHomePage);
     }
 
+    /**
+     * Metodo para validar si la página de inicio es visible
+     * @date 14/06/2026
+     * @author Ivan
+     */
     async isHomePageVisible() {
         await expect(this.page.locator(this.activeLink)).toBeVisible();
         await this.screenshotUtils.take('imgHomePage');
